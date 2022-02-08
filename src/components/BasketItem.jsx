@@ -1,14 +1,21 @@
+import { Close } from "@mui/icons-material";
+import { IconButton, ListItem, Typography } from "@mui/material";
+
 const BasketItem = (props) => {
+
+    const {removeFromOrder, name, id, price, quantity} = props;
     return (
-        <li className='list-group-item'>
-            {props.name} {props.price}руб x{props.quantity}
-            <button
-                className='btn btn-primary'
-                onClick={() => props.setOrder(props.id)}
-            >
-                Удалить из корзины
-            </button>
-        </li>
+        <ListItem>
+            <Typography
+                variant="body1">
+                {name} {price} руб x {quantity}
+            </Typography>
+            
+            <IconButton
+                onClick={() => removeFromOrder(id)}>                
+                <Close/>
+            </IconButton>
+        </ListItem>
     );
 };
 
